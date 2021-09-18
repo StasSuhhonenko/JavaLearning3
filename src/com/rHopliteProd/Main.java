@@ -185,6 +185,40 @@ public class Main {
                 }
 
             }
+            System.out.println("The sum of odd numbers found is "+ sumOdd(1,11));
+
+            // WHILE LOOP EXPLANATION
+           int counts = 0;
+           while(counts != 6){
+               System.out.println("Count value is " + counts);
+               counts++;
+            }
+           int number = 4;
+           int finishNumber = 20;
+           int coutise = 0;
+           while (number <= finishNumber){
+               if(!isEvenNumber(number)){
+                   number++;
+               }else{
+                   coutise++;
+                   System.out.println("Even number " + number);
+                   number++;
+                   if(coutise >=5){
+                       break;
+                   }
+               }
+           }
+            System.out.println("Total " + coutise + " even numbers found");
+            System.out.println("The sum of the digits is " + sumDigits(125));
+            if(isPalindrome(5665)){
+                System.out.println(" This number is a palindrome");
+            } else if(!isPalindrome(5665)){
+                System.out.println("This is not a palindrome");
+            }
+            System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(5));
+            System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(10));
+            System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(101));
+ //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
         public static int calculateScore (boolean gameOver,int score,
         int levelCompleted,int bonus) {
@@ -465,7 +499,89 @@ public class Main {
             }
             return true;
         }
+// isOdd Exercise
+        public static boolean isOdd(int number){
+            if(number < 0){
+                return false;
+            } else {
+                if(number % 2 != 0){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
 
-        public static int isOdd =
+        public static int sumOdd(int start, int end){
+            int sum = 0;
+            if (end >= start || start >= 0){
+                for (int i = start; i <= end; i++){
+                    if(isOdd(i)){
+                        sum += i;
+                    }
+                }
+                return sum;
+            } else {
+                return -1;
+            }
+        }
+
+        public static boolean isEvenNumber(int number){
+            if(number % 2 == 0){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // DIGIT SUM CHALLENGE
+
+        private static int sumDigits(int number){
+            if(number < 10){
+                return -1;
+            }
+            int sum = 0;
+            while(number > 0){
+                //extract the least-significant digit
+                int digit = number % 10;
+                sum+=digit;
+                //drop the least sigificant digit
+                number /= 10;
+            }
+            return sum;
+        }
+
+        private static boolean isPalindrome(int number){
+            int reverse = 0;
+            int originalNumber = number;
+            int lastDigit = 0;
+
+            while (number != 0){
+                lastDigit = number % 10;
+                reverse = reverse * 10;
+                reverse += lastDigit;
+                number /= 10;
+            }
+
+            return originalNumber == reverse;
+        }
+
+        public static int sumFirstAndLastDigit(int num){
+            int firstDigit = 0;
+            if(num < 0){
+                return -1;
+            } else {
+                int lastDigit = num % 10;
+                while(num > 9){
+                    firstDigit = num / 10;
+                    num /= 10;
+                }
+                if(num < 10){
+                    firstDigit = num;
+                }
+                int sum = firstDigit + lastDigit;
+                return sum;
+            }
+        }
 
     }

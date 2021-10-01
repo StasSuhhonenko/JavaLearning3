@@ -1,11 +1,13 @@
 package com.rHopliteProd;
 
-public class Main {
+import java.util.Scanner;
 
-        public static void main(String[] args) throws Exception {
+public class Main {
+        public static void main(String[] args){
             System.out.println("Hello, World!");
+            Scanner input = new Scanner(System.in);
             boolean isAlien = false;
-            if (isAlien == false) {
+            if (!isAlien) {
                 System.out.println("It is not an Alien");
                 System.out.println("And I'm afraid of aliens");
             }
@@ -218,7 +220,23 @@ public class Main {
             System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(5));
             System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(10));
             System.out.println("The sum of first and last digit is " + sumFirstAndLastDigit(101));
+            // System.out.println(getEvenDigitSum(45678));
+            // System.out.println(hasSharedDigit(9, 9));
+            // System.out.println(hasSameLastDigit(5678, 7998, 4338));
+            // System.out.println(getGreatestCommonDivisor(81, 153));
+            // System.out.println( isPerfectNumber(5) + " is Perfect Number, Horray");
+            // numberToWords(33949);
+            // int numberStr = Integer.parseInt("23535");
+            // System.out.println(numberStr);
+            getLargestPrime(45);
+            printSquareStar(8);
+//            nameAndYearInput();
+//            userMinimumAndMaximum();
+            inputThenPrintSumAndAverage();
  //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        }
+        public static void scannerVar(){
+            Scanner input = new Scanner(System.in);
         }
         public static int calculateScore (boolean gameOver,int score,
         int levelCompleted,int bonus) {
@@ -583,5 +601,326 @@ public class Main {
                 return sum;
             }
         }
+    public static int getEvenDigitSum(int num){
+        int sum = 0;
+        if(num < 0){
+            return -1;
+        }
+        while(num > 0){
+            int lastDigit = num % 10;
+            if(lastDigit % 2 == 0){
+                sum += lastDigit;
+            }
+            num /= 10;
+        }
+        System.out.println(sum);
+        return sum;
+    }
+
+    public static boolean hasSharedDigit(int numA, int numB){
+        if((numA < 10 || numA > 99) || (numB < 10 || numB > 99)){
+            return false;
+        } else {
+            int firstDigitA = numA / 10;
+            int lastDigitA = numA % 10;
+            int firstDigitB = numB / 10;
+            int lastDigitB = numB % 10;
+            if(firstDigitA == firstDigitB || firstDigitA == lastDigitB || lastDigitA == firstDigitB || lastDigitA == lastDigitB ){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public static boolean hasSameLastDigit(int x, int y, int z){
+        if((x < 10 || x > 1000) || (y < 10 || y > 1000) || (z < 10 || z > 1000)){
+            return false;
+        } else {
+            int lastDigitA = x % 10;
+            int lastDigitB = y % 10;
+            int lastDigitC = z % 10;
+            if(lastDigitA == lastDigitB || lastDigitA == lastDigitC || lastDigitB == lastDigitC){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public static boolean isValid(int x){
+        if(x < 10 || x > 1000){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static int getGreatestCommonDivisor(int first, int second){
+        int commonDivisor = 1;
+        if(first < 10 || second < 10){
+            return -1;
+        }
+        for (int i = 1; i <= first && i <= second; i++){
+            if(first % i == 0 && second % i ==0) {
+                commonDivisor = i;
+            }
+        }
+        return commonDivisor;
+    }
+
+    public static void printFactors(int num){
+        if(num < 1){
+            System.out.println("Invalid value");
+        }
+        int factor = 1;
+        while(factor < num){
+            if(num % factor == 0){
+                System.out.println(factor);
+            }
+            factor++;
+        }
+    }
+    public static boolean isPerfectNumber(int num){
+        if(num < 1){
+            return false;
+        }
+        int factor = 1;
+        int sum = 0;
+        while(factor < num){
+            if(num % factor == 0){
+                System.out.println(factor);
+                sum += factor;
+            }
+            factor++;
+        }
+        if(sum == num){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // NUMBER TO WORDS HARD CHALLENGE
+    public static void numberToWords(int num){
+        if(num < 0){
+            System.out.println("Invalid value");
+        }
+
+        int reversedNum = reverse(num);
+
+        int lastDigit = 0;
+        for(int i = 1; i <= getDigitCount(num); i++){
+            lastDigit = reversedNum % 10;
+            reversedNum /= 10;
+            switch (lastDigit) {
+                case 0:
+                    System.out.println("Zero");
+                    break;
+                case 1:
+                    System.out.println("One");
+                    break;
+                case 2:
+                    System.out.println("Two");
+                    break;
+                case 3:
+                    System.out.println("Three");
+                    break;
+                case 4:
+                    System.out.println("Four");
+                    break;
+                case 5:
+                    System.out.println("Five");
+                    break;
+                case 6:
+                    System.out.println("Six");
+                    break;
+                case 7:
+                    System.out.println("Seven");
+                    break;
+                case 8:
+                    System.out.println("Eight");
+                    break;
+                case 9:
+                    System.out.println("Nine");
+                    break;
+                default:
+                    System.out.println("Invalid Value");
+                    break;
+            }
+        }
+    }
+
+    public static int reverse(int num2) {
+        int reversedNumber = 0;
+        while(num2 !=0){
+            int lastDigitr = num2 % 10;
+            reversedNumber *= 10;
+            reversedNumber += lastDigitr;
+            num2 /= 10;
+        }
+        return reversedNumber;
+    }
+
+    public static int getDigitCount(int num3){
+        if(num3 < 0){
+            return -1;
+        }
+        int count = 1;
+
+        while (num3 > 9) {
+            num3 /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    public static boolean canPack(int bigCount, int smallCount, int goal){
+        if(bigCount < 0 || smallCount < 0 || goal < 0){
+            return false;
+        }
+        int bc = bigCount * 5;
+        int sum = (bc + smallCount);
+
+        if(sum < goal){
+            return false;
+        } else if (sum >= goal) {
+            if((goal % 5) <= smallCount){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    public static int getLargestPrime(int num){
+        if(num < 2){
+            return -1;
+        }
+        for(int i = num -1; i > 1; i--){
+            if(num % i == 0){
+                num = i;
+            }
+        }
+        return num;
+    }
+    // DIAGONAL STAR SHIT
+    public static void printSquareStar(int num){
+        if(num < 5){
+            System.out.println("Invalid Value");
+        } else {
+            for(int row = 1; row <= num; row++){
+                if(row == 1 || row == num){
+                    int count = 1;
+                    while(count <= num){
+                        System.out.print("*");
+                        count++;
+                    }
+                    System.out.println();
+                } else {
+                    for(int column = 1; column <= num; column++){
+                        if(column == 1|| column == num){
+                            System.out.print("*");
+                        }else if(column == (num - row + 1)){
+                            System.out.print("*");
+                        }else if(column == row){
+                            System.out.print("*");
+                        }else{
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
+    public static void nameAndYearInput(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your YoB: ");
+        boolean hasNextInt = scanner.hasNextInt();
+        if(hasNextInt){
+            int yOB = scanner.nextInt();
+            scanner.nextLine(); //Handling Enter key issue
+            System.out.println("Enter your name: ");
+            String name = scanner.nextLine();
+            int age = 2021 - yOB;
+            if(age >= 0 && age <= 150){
+                System.out.println("Your name is " + name + " and your age is " + age);
+            }else{
+                System.out.println("Invalid Year of Birth");
+            }
+        } else {
+            System.out.println("Unable to parse year of Birth");
+        }
+    }
+
+    public static void input10NumbersChallenge(){
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Enter 10 random numbers");
+        int count = 1;
+        int sum = 0;
+        while(count < 11){
+            System.out.println("Enter number #" + count);
+            boolean hasNextInteger = scanner1.hasNextInt();
+            if(!hasNextInteger){
+                System.out.println("Invalid number");
+                scanner1.nextLine();
+            } else {
+                sum += scanner1.nextInt();
+                scanner1.nextLine();
+                count++;
+            }
+        }
+        System.out.println("The sum of input is " + sum);
+    }
+
+    public static void userMinimumAndMaximum(){
+        Scanner input = new Scanner(System.in);
+        int max = 0;
+        int min = 0;
+        boolean start = true;
+        while(start){
+            System.out.println("Enter number ");
+            boolean hasNextInt = input.hasNextInt();
+            if(hasNextInt){
+                int num = input.nextInt();
+                if(num > max){
+                    max = num;
+                }
+                if(num < min){
+                    min = num;
+                }
+            } else {
+                System.out.println("User minimum is " + min);
+                System.out.println("User maximum is " + max);
+                break;
+            }
+            input.nextLine(); // Handling ENTER key bug
+        }
+    }
+    public static void inputThenPrintSumAndAverage(){
+        System.out.println("This method sums up and generate the" +
+                " average" +
+                " of the numbers that you have inputted");
+        Scanner input = new Scanner(System.in);
+        int sum = 0;
+        int count = 0;
+        while(input.hasNextInt()){
+            System.out.println("Enter the number: ");
+            sum += input.nextInt();
+            input.nextLine();
+            count++;
+        }
+        System.out.println("SUM = " + sum + " AVG = " + Math.round((double) sum/ count));
+    }
+
+    public static int getBucketCount(double width, double height, double areaPerBucket,int extraBuckets){
+            if(width <= 0 || height <= 0 || areaPerBucket <= 0 || extraBuckets < 0){
+                return -1;
+            }
+            Scanner input = new Scanner(System.in);
+            int num1
 
     }
+}

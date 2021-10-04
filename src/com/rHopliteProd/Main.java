@@ -228,15 +228,17 @@ public class Main {
             // numberToWords(33949);
             // int numberStr = Integer.parseInt("23535");
             // System.out.println(numberStr);
-            getLargestPrime(45);
-            printSquareStar(8);
-//            nameAndYearInput();
-//            userMinimumAndMaximum();
-            inputThenPrintSumAndAverage();
+            // getLargestPrime(45);
+            // printSquareStar(8);
+            // nameAndYearInput();
+            // userMinimumAndMaximum();
+            // inputThenPrintSumAndAverage();
+            System.out.println(getBucketCount(3.4,1.5));;
+            Car porsche = new Car();
+            Car VAZ = new Car();
+            porsche.setModel("Carrera");
+            System.out.println("Model is " + porsche.getModel());
  //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        }
-        public static void scannerVar(){
-            Scanner input = new Scanner(System.in);
         }
         public static int calculateScore (boolean gameOver,int score,
         int levelCompleted,int bonus) {
@@ -916,11 +918,25 @@ public class Main {
     }
 
     public static int getBucketCount(double width, double height, double areaPerBucket,int extraBuckets){
-            if(width <= 0 || height <= 0 || areaPerBucket <= 0 || extraBuckets < 0){
-                return -1;
-            }
-            Scanner input = new Scanner(System.in);
-            int num1
-
+        if(width <= 0 || height <= 0 || areaPerBucket <= 0 || extraBuckets < 0){
+            return -1;
+        }
+        double bucketsNeeded = ((width * height) / areaPerBucket) - extraBuckets;
+        double roundedBucketsNeeded = Math.ceil(bucketsNeeded);
+        return (int)roundedBucketsNeeded;
+    }
+    public static int getBucketCount(double width, double height, double areaPerBucket){
+        if(width <= 0 || height <= 0 || areaPerBucket <= 0){
+            return -1;
+        }
+        double bucketsNeeded = getBucketCount(width, height, areaPerBucket, 0);
+        return (int)bucketsNeeded;
+    }
+    public static int getBucketCount(double area, double areaPerBucket){
+        if(area <= 0 || areaPerBucket <= 0){
+            return -1;
+        }
+        double bucketsNeeded = getBucketCount(area, 1, areaPerBucket);
+        return (int)bucketsNeeded;
     }
 }

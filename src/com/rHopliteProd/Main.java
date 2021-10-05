@@ -233,11 +233,16 @@ public class Main {
             // nameAndYearInput();
             // userMinimumAndMaximum();
             // inputThenPrintSumAndAverage();
-            System.out.println(getBucketCount(3.4,1.5));;
-            Car porsche = new Car();
-            Car VAZ = new Car();
-            porsche.setModel("Carrera");
-            System.out.println("Model is " + porsche.getModel());
+//            System.out.println(getBucketCount(3.4,1.5));;
+//            Car porsche = new Car();
+//            Car VAZ = new Car();
+//            porsche.setModel("Carrera");
+//            System.out.println("Model is " + porsche.getModel());
+            BankAccount stasAccount = new BankAccount();
+            stasAccount.setBalance(2500.3456);
+            System.out.println("Your balance is " + stasAccount.getBalance() + " euros");
+            stasAccount.depositFunds();
+            stasAccount.withdrawal();
  //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
         public static int calculateScore (boolean gameOver,int score,

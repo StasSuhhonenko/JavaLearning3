@@ -3,29 +3,24 @@ package com.rHopliteProd;
 import java.util.Scanner;
 
 public class BankAccount {
-    private double accountNumber;
+    private String accountNumber;
     private double balance;
     private String customerName;
     private String email;
     private String phoneNumber;
-    Scanner input = new Scanner(System.in);
 
-    public void setAccountNumber(double accountNumber) {
+    public BankAccount(String accountNumber, double balance, String customerName, String email, String phoneNumber) {
         this.accountNumber = accountNumber;
-    }
-    public void setBalance(double balance) {
         this.balance = balance;
-    }
-    public void setCustomerName(String customerName) {
         this.customerName = customerName;
-    }
-    public void setEmail(String email) {
         this.email = email;
-    }
-    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public double getAccountNumber() {
+
+    Scanner input = new Scanner(System.in);
+
+
+    public String getAccountNumber() {
         return accountNumber;
     }
     public double getBalance() {
@@ -42,7 +37,7 @@ public class BankAccount {
     }
 
     public void depositFunds(){
-        System.out.println("How many euros do you want to add to your account?");
+        System.out.println(getCustomerName() + ", How many euros do you want to add to account " + getAccountNumber() + " ?");
         double depositedAmount = input.nextDouble();
         input.nextLine();
         balance += depositedAmount;
@@ -53,8 +48,14 @@ public class BankAccount {
         System.out.println("How many euros do you want to withdraw?");
         double withdrewMoney = input.nextDouble();
         input.nextLine();
-        balance -= withdrewMoney;
-        System.out.println("You've withdrew " + withdrewMoney + " euros from your account");
-        System.out.println("The balance now is " + balance + " euros");
+        if(balance - withdrewMoney > 0){
+            balance -= withdrewMoney;
+            System.out.println("You've withdrew " + withdrewMoney + " euros from your account");
+            System.out.println("The balance now is " + balance + " euros");
+        } else {
+            System.out.println("Insufficient money");
+        }
+
     }
+
 }

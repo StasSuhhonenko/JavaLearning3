@@ -238,11 +238,39 @@ public class Main {
 //            Car VAZ = new Car();
 //            porsche.setModel("Carrera");
 //            System.out.println("Model is " + porsche.getModel());
-            BankAccount stasAccount = new BankAccount();
-            stasAccount.setBalance(2500.3456);
-            System.out.println("Your balance is " + stasAccount.getBalance() + " euros");
-            stasAccount.depositFunds();
-            stasAccount.withdrawal();
+//            //===================================================================================================================================
+//            BankAccount stasAccount = new BankAccount("34552", 3400.00,"Stas","swefgr", "457875225");
+//            System.out.println("Your bank account has " + stasAccount.getBalance() + " euros");
+//            stasAccount.depositFunds();
+//            stasAccount.withdrawal();
+//            VipCustomer customer1 = new VipCustomer();
+//            System.out.println(customer1.getName());
+//            VipCustomer customer2 = new VipCustomer("Bob", 25000.00);
+//            System.out.println(customer2.getName());
+//            VipCustomer customer3 = new VipCustomer("Dan",45000.00,"example@gmail.com");
+//            System.out.println(customer3.getName());
+//            Wall wall = new Wall(5,4);
+//            System.out.println("area = " + wall.getArea());
+//            wall.setHeight(-1.5);
+//            System.out.println("width = " + wall.getWidth());
+//            System.out.println("Height = " + wall.getHeight());
+//            System.out.println("area = " + wall.getArea());
+//            Point first = new Point(6, 5);
+//            Point second = new Point(3, 1);
+//            System.out.println("distance(0,0)= " + first.distance());
+//            System.out.println("distance(second)= " + first.distance(second));
+//            System.out.println("distance(2,2)= " + first.distance(2, 2));
+//            Point point = new Point();
+//            System.out.println("distance()= " + point.distance());
+            Carpet carpet = new Carpet(3.5);
+            Floor floor = new Floor(2.75, 4.0);
+            Calculator calculator = new Calculator(floor, carpet);
+            System.out.println("total= " + calculator.getTotalCost());
+            carpet = new Carpet(1.5);
+            floor = new Floor(5.4, 4.5);
+            calculator = new Calculator(floor, carpet);
+            System.out.println("total= " + calculator.getTotalCost());
+
  //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
         public static int calculateScore (boolean gameOver,int score,

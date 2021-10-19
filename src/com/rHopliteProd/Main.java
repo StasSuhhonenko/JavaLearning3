@@ -270,7 +270,11 @@ public class Main {
             floor = new Floor(5.4, 4.5);
             calculator = new Calculator(floor, carpet);
             System.out.println("total= " + calculator.getTotalCost());
-
+            Animal animal = new Animal("Generic bird", 1,2,3,4);
+            Dog bulldog = new Dog("BullDog", 3,4,5,6,78,90,-8,6,"brown");
+            bulldog.eat();
+            bulldog.walk();
+            bulldog.run();
  //  MAIN METHOD END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         }
         public static int calculateScore (boolean gameOver,int score,

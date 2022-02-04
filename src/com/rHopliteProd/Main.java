@@ -833,6 +833,7 @@ public class Main {
         }
     }
 
+
     public static int getLargestPrime(int num){
         if(num < 2){
             return -1;
@@ -844,7 +845,7 @@ public class Main {
         }
         return num;
     }
-    // DIAGONAL STAR SHIT
+    // DIAGONAL STAR CHALLENGE
     public static void printSquareStar(int num){
         if(num < 5){
             System.out.println("Invalid Value");

@@ -14,15 +14,15 @@ public class Fish extends Animal {
     }
 
     private void rest(){
-
+        System.out.println("method Fish.rest called");
     }
 
     private void moveMuscles(){
-
+        System.out.println("method Fish.moveMuscles called");
     }
 
     private void moveBackFin(){
-
+        System.out.println("Method Fish.moveBackFin called");
     }
     private void swim( int speed){
         moveMuscles();
